@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antonio Céspedes Ros — Software Developer</title>
+<meta name="description" content="Portfolio de Antonio Céspedes Ros. Desarrollador full-stack: Laravel, Vue, APIs e IA aplicada. Proyectos: NotiCharge y NutriClaude.">
+<meta name="author" content="Antonio Céspedes Ros">
+<meta name="theme-color" content="#0B0E11">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Antonio Céspedes Ros — Software Developer">
+<meta property="og:description" content="Desarrollador full-stack: Laravel, Vue, APIs e IA aplicada.">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  img { max-width: 100%; }
+
+  :root {
+    --ground: #0B0E11;
+    --surface: #12171B;
+    --surface-2: #171E24;
+    --line: #26313A;
+    --line-soft: #1B242B;
+    --text: #E9EDEB;
+    --muted: #8496A0;
+    --muted-dim: #5E6E77;
+    --signal: #FF6A2C;
+    --signal-soft: rgba(255, 106, 44, 0.14);
+    --data: #57C7B6;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, sans-serif;
+    --mono: ui-monospace, "Cascadia Code", "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --maxw: 1080px;
+    --step: clamp(1rem, 0.6rem + 1.6vw, 1.5rem);
+  }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(900px 500px at 82% -8%, rgba(255,106,44,0.08), transparent 70%),
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: auto, 46px 46px, 46px 46px;
+    background-position: 0 0, -1px -1px, -1px -1px;
+  }
+
+  .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--step); }
+
+  a { color: inherit; text-decoration: none; }
+
+  ::selection { background: var(--signal); color: #0B0E11; }
+
+  :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 2px; }
+
+  .mono {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- top bar ---------- */
+  header.bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(11, 14, 17, 0.72);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 58px;
+  }
+  .brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.04em; }
+  .brand .mark {
+    display: grid; place-items: center;
+    width: 30px; height: 30px;
+    border: 1px solid var(--signal);
+    color: var(--signal);
+    font-weight: 700; font-size: 0.8rem;
+    border-radius: 6px;
+  }
+  .brand b { color: var(--text); font-weight: 600; }
+  nav.links { display: flex; gap: 1.4rem; }
+  nav.links a { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; transition: color .18s; }
+  nav.links a:hover { color: var(--signal); }
+  @media (max-width: 680px) { nav.links { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(2.5rem, 5vw, 4rem); }
+  .status {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em;
+    color: var(--data);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 0.4rem 0.8rem; border-radius: 100px;
+    margin-bottom: 1.8rem;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--data); box-shadow: 0 0 0 0 rgba(87,199,182,0.6); animation: ping 2.4s ease-out infinite; }
+  @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(87,199,182,0.55);} 70%,100% { box-shadow: 0 0 0 9px rgba(87,199,182,0);} }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 1.5rem + 5.5vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    font-weight: 720;
+    margin: 0 0 1.1rem;
+    text-wrap: balance;
+  }
+  .hero h1 .thin { color: var(--muted-dim); font-weight: 400; }
+  .role {
+    font-family: var(--mono);
+    font-size: clamp(0.85rem, 0.7rem + 0.5vw, 1rem);
+    color: var(--signal);
+    letter-spacing: 0.01em;
+    margin: 0 0 1.6rem;
+  }
+  .role span { color: var(--muted); }
+  .lede { max-width: 60ch; color: #C2CCCF; font-size: 1.08rem; margin: 0 0 2rem; }
+  .lede b { color: var(--text); font-weight: 600; }
+
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+  .btn {
+    font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.03em;
+    padding: 0.72rem 1.2rem; border-radius: 8px;
+    border: 1px solid var(--line);
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: border-color .18s, background .18s, color .18s, transform .18s;
+  }
+  .btn.primary { background: var(--signal); color: #0B0E11; border-color: var(--signal); font-weight: 600; }
+  .btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,106,44,0.28); }
+  .btn.ghost:hover { border-color: var(--signal); color: var(--signal); }
+
+  .readout {
+    margin-top: 2.8rem;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+    background: var(--surface);
+  }
+  .readout .cell { padding: 1.1rem 1.2rem; border-right: 1px solid var(--line-soft); }
+  .readout .cell:last-child { border-right: 0; }
+  .readout .n { font-family: var(--mono); font-size: 1.5rem; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .readout .n em { color: var(--signal); font-style: normal; }
+  .readout .k { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
+  @media (max-width: 620px) {
+    .readout { grid-template-columns: repeat(2, 1fr); }
+    .readout .cell:nth-child(2) { border-right: 0; }
+    .readout .cell:nth-child(1), .readout .cell:nth-child(2) { border-bottom: 1px solid var(--line-soft); }
+  }
+
+  /* ---------- sections ---------- */
+  section { padding: clamp(3rem, 6vw, 5rem) 0; border-top: 1px solid var(--line-soft); }
+  .sec-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2.2rem; }
+  .sec-head .idx { font-family: var(--mono); font-size: 0.8rem; color: var(--signal); }
+  .sec-head h2 { font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.1rem); letter-spacing: -0.02em; margin: 0; font-weight: 680; }
+  .sec-head .rule { flex: 1; height: 1px; background: var(--line-soft); align-self: center; }
+
+  /* ---------- stack strip ---------- */
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .chip {
+    font-family: var(--mono); font-size: 0.78rem; color: var(--muted);
+    border: 1px solid var(--line); background: var(--surface);
+    padding: 0.4rem 0.75rem; border-radius: 6px;
+    transition: color .18s, border-color .18s;
+  }
+  .chip:hover { color: var(--text); border-color: var(--muted-dim); }
+  .chip.key { color: var(--signal); border-color: rgba(255,106,44,0.4); background: var(--signal-soft); }
+
+  /* ---------- about ---------- */
+  .about { max-width: 68ch; }
+  .about p { color: #C2CCCF; margin: 0 0 1.1rem; font-size: 1.06rem; }
+  .about p b { color: var(--text); font-weight: 600; }
+  .about .techline { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--line-soft); }
+  .about .techline b { color: var(--signal); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; display: block; margin-bottom: 0.5rem; }
+
+  /* ---------- projects ---------- */
+  .projects { display: grid; gap: 1.4rem; }
+  .panel {
+    border: 1px solid var(--line); border-radius: 14px;
+    background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    overflow: hidden;
+    transition: border-color .2s, transform .2s;
+  }
+  .panel:hover { border-color: var(--muted-dim); transform: translateY(-3px); }
+  .panel-top {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 1rem 1.4rem; border-bottom: 1px solid var(--line-soft);
+    background: rgba(255,255,255,0.015);
+  }
+  .panel-id { display: flex; align-items: center; gap: 0.7rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.05em; color: var(--muted); }
+  .glyph { font-size: 1.05rem; }
+  .state { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 5px; }
+  .state.live { color: var(--data); background: rgba(87,199,182,0.12); border: 1px solid rgba(87,199,182,0.3); }
+  .state.dev { color: var(--muted); background: var(--surface); border: 1px solid var(--line); }
+
+  .panel-body { padding: 1.6rem 1.4rem; }
+  .panel-body h3 { font-size: 1.55rem; margin: 0 0 0.15rem; letter-spacing: -0.02em; }
+  .panel-body .tag { font-family: var(--mono); font-size: 0.8rem; color: var(--signal); margin-bottom: 1rem; }
+  .panel-body p { color: #BAC4C7; margin: 0 0 1.3rem; max-width: 62ch; }
+
+  .metrics { display: flex; flex-wrap: wrap; gap: 1.6rem; margin: 0 0 1.4rem; padding: 1rem 0; border-block: 1px solid var(--line-soft); }
+  .metrics .m .mv { font-family: var(--mono); font-size: 1.15rem; color: var(--text); font-variant-numeric: tabular-nums; }
+  .metrics .m .mv em { color: var(--signal); font-style: normal; }
+  .metrics .m .mk { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
+
+  .feat { list-style: none; margin: 0 0 1.4rem; padding: 0; display: grid; gap: 0.55rem; }
+  .feat li { position: relative; padding-left: 1.4rem; color: #B4BEC1; font-size: 0.96rem; }
+  .feat li::before { content: "▸"; position: absolute; left: 0; color: var(--signal); font-size: 0.8rem; top: 0.15rem; }
+
+  .panel .stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
+  .panel .stack span { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); border: 1px solid var(--line-soft); padding: 0.3rem 0.55rem; border-radius: 5px; }
+
+  .panel-link { font-family: var(--mono); font-size: 0.82rem; color: var(--data); display: inline-flex; align-items: center; gap: 0.5rem; transition: gap .18s; }
+  .panel-link:hover { gap: 0.85rem; }
+  .panel-link.muted { color: var(--muted-dim); }
+
+  /* ---------- timeline ---------- */
+  .timeline { display: grid; gap: 0; }
+  .tl-row { display: grid; grid-template-columns: 200px 1fr; gap: 1.5rem; padding: 1.4rem 0; border-top: 1px solid var(--line-soft); }
+  .tl-row:first-child { border-top: 0; }
+  .tl-when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); padding-top: 0.15rem; }
+  .tl-when .now { color: var(--data); }
+  .tl-what h4 { margin: 0 0 0.2rem; font-size: 1.1rem; letter-spacing: -0.01em; }
+  .tl-what .org { font-family: var(--mono); font-size: 0.8rem; color: var(--signal); margin-bottom: 0.5rem; }
+  .tl-what p { margin: 0; color: #AEB8BB; font-size: 0.96rem; max-width: 60ch; }
+  @media (max-width: 620px) { .tl-row { grid-template-columns: 1fr; gap: 0.4rem; } }
+
+  /* ---------- skills grid ---------- */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .skill-card { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); padding: 1.3rem; }
+  .skill-card h4 { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--signal); margin: 0 0 0.9rem; }
+  .skill-card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-card li { font-size: 0.88rem; color: #C2CCCF; }
+  .skill-card li:not(:last-child)::after { content: "·"; color: var(--muted-dim); margin-left: 0.4rem; }
+
+  /* ---------- contact ---------- */
+  .contact-box { border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(180deg, var(--surface-2), var(--surface)); padding: clamp(1.8rem, 4vw, 3rem); }
+  .contact-box h2 { font-size: clamp(1.7rem, 1.2rem + 2vw, 2.6rem); letter-spacing: -0.02em; margin: 0 0 0.6rem; text-wrap: balance; }
+  .contact-box p { color: #B4BEC1; max-width: 52ch; margin: 0 0 1.8rem; }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .clink { font-family: var(--mono); font-size: 0.85rem; padding: 0.75rem 1.1rem; border: 1px solid var(--line); border-radius: 9px; display: inline-flex; align-items: center; gap: 0.55rem; transition: border-color .18s, color .18s, transform .18s; }
+  .clink:hover { border-color: var(--signal); color: var(--signal); transform: translateY(-2px); }
+  .clink .k { color: var(--muted); }
+  .clink:hover .k { color: var(--signal); }
+
+  footer.foot { border-top: 1px solid var(--line-soft); padding: 2rem 0 3rem; }
+  footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; }
+  footer.foot span { font-family: var(--mono); font-size: 0.74rem; color: var(--muted-dim); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar-inner">
+    <a class="brand" href="#top"><span class="mark">AC</span> <b>Antonio&nbsp;Céspedes</b></a>
+    <nav class="links">
+      <a href="#sobre-mi">/sobre-mí</a>
+      <a href="#proyectos">/proyectos</a>
+      <a href="#trayectoria">/trayectoria</a>
+      <a href="#stack">/stack</a>
+      <a href="#contacto">/contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="border-top:0;">
+    <div class="wrap">
+      <span class="status"><span class="dot"></span>Disponible para nuevos proyectos</span>
+      <h1>Antonio Céspedes <span class="thin">Ros</span></h1>
+      <p class="role">Software Developer <span>·</span> Laravel <span>·</span> Vue <span>·</span> APIs <span>·</span> IA aplicada &amp; automatización</p>
+      <p class="lede">Desarrollador <b>full-stack</b> que construye productos web reales y los lleva hasta producción. En <b>ZATACA</b> desarrollo soluciones orientadas a negocio con Laravel y Vue; en paralelo diseño mis propios sistemas en tiempo real y experimento con <b>IA aplicada, automatización y machine learning</b>.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#proyectos">Ver proyectos →</a>
+        <a class="btn ghost" href="mailto:tonices17@gmail.com">Contactar</a>
+      </div>
+
+      <div class="readout" aria-label="Resumen">
+        <div class="cell"><div class="n"><em>2</em>+ años</div><div class="k">Full-stack pro</div></div>
+        <div class="cell"><div class="n">2</div><div class="k">Productos propios</div></div>
+        <div class="cell"><div class="n">Laravel<br>+ Vue</div><div class="k">Stack principal</div></div>
+        <div class="cell"><div class="n">Elche</div><div class="k">Com. Valenciana</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre-mi">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">01</span><h2>Sobre mí</h2><span class="rule"></span></div>
+      <div class="about">
+        <p>Desarrollador <b>full-stack</b> con experiencia en el desarrollo de aplicaciones web y APIs utilizando <b>PHP, Laravel y Vue.js</b>.</p>
+        <p>Actualmente creo y mantengo soluciones orientadas a negocio, participando tanto en desarrollo <b>backend como frontend</b>, integración de servicios y gestión de bases de datos.</p>
+        <p>Además, cuento con formación especializada en <b>Inteligencia Artificial y Big Data</b>, aplicando conocimientos de automatización, procesamiento de lenguaje natural y herramientas basadas en IA a proyectos reales.</p>
+        <p>Me interesa especialmente la <b>integración de soluciones de IA en aplicaciones modernas</b>, combinando desarrollo software, cloud y automatización para crear productos más eficientes y escalables.</p>
+        <p class="techline"><b>Tecnologías principales</b>PHP · Laravel · Vue.js · JavaScript · Python · MySQL · MongoDB · AWS · APIs REST · IA Generativa</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">02</span><h2>Herramientas</h2><span class="rule"></span></div>
+      <div class="chips">
+        <span class="chip key">PHP</span>
+        <span class="chip key">Laravel</span>
+        <span class="chip key">Vue 3</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Pinia</span>
+        <span class="chip">Tailwind CSS</span>
+        <span class="chip">APIs REST</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">MongoDB</span>
+        <span class="chip">Redis</span>
+        <span class="chip">Colas / Queues</span>
+        <span class="chip">Sanctum</span>
+        <span class="chip">Web Push</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Railway</span>
+        <span class="chip">AWS</span>
+        <span class="chip key">Python</span>
+        <span class="chip key">IA Generativa</span>
+        <span class="chip">Modelos IA</span>
+        <span class="chip">PLN / NLP</span>
+        <span class="chip">Prompts</span>
+        <span class="chip">Git / GitHub</span>
+        <span class="chip">Playwright</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">03</span><h2>Proyectos</h2><span class="rule"></span></div>
+      <div class="projects">
+
+        <article class="panel">
+          <div class="panel-top">
+            <div class="panel-id"><span class="glyph">⚡</span> noticharge</div>
+            <span class="state live">● En producción</span>
+          </div>
+          <div class="panel-body">
+            <h3>NotiCharge</h3>
+            <div class="tag">Monitorización de carga de VE en tiempo real</div>
+            <p>PWA que vigila la red de puntos de carga de Iberdrola y avisa por <b>Web Push</b> en cuanto un cargador ocupado queda libre. Mapa interactivo, marcadores por punto y notificaciones granulares por ciudad.</p>
+
+            <div class="metrics">
+              <div class="m"><div class="mv">Web Push</div><div class="mk">VAPID · multiplataforma</div></div>
+              <div class="m"><div class="mv"><em>60</em>s</div><div class="mk">Sondeo automático</div></div>
+              <div class="m"><div class="mv">iOS · Android · Web</div><div class="mk">Alcance</div></div>
+            </div>
+
+            <ul class="feat">
+              <li>Ingeniería inversa de la API de Iberdrola con caché de 45&nbsp;s y reintentos con fallback.</li>
+              <li>Detección de transiciones <span class="mono">OCCUPIED → AVAILABLE</span> vía scheduler always-on cada minuto.</li>
+              <li>Notificaciones Web Push (VAPID / RFC 8292) que llegan incluso a iPhone sin app instalada.</li>
+              <li>Panel de administración con auditoría, impersonación y logs de envíos.</li>
+            </ul>
+
+            <div class="stack">
+              <span>PHP 8.3</span><span>Laravel 13</span><span>Vue 3</span><span>Pinia</span><span>Tailwind 4</span><span>Leaflet</span><span>PostgreSQL</span><span>FrankenPHP</span><span>Railway</span>
+            </div>
+
+            <a class="panel-link" href="https://noticharge-production.up.railway.app" target="_blank" rel="noopener">Ver demo en producción →</a>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-top">
+            <div class="panel-id"><span class="glyph">🥗</span> nutriclaude</div>
+            <span class="state dev">● Proyecto privado</span>
+          </div>
+          <div class="panel-body">
+            <h3>NutriClaude</h3>
+            <div class="tag">Plataforma de gestión para nutricionistas</div>
+            <p>SPA que digitaliza el trabajo de un nutricionista con sus clientes: planes de dieta y entrenamiento, seguimiento del progreso con gráficas, chat 1-a-1 y captación de leads desde una landing pública.</p>
+
+            <div class="metrics">
+              <div class="m"><div class="mv"><em>18</em></div><div class="mk">Módulos DDD</div></div>
+              <div class="m"><div class="mv"><em>64</em></div><div class="mk">Commits</div></div>
+              <div class="m"><div class="mv">Unit · API · E2E</div><div class="mk">Testing</div></div>
+            </div>
+
+            <ul class="feat">
+              <li>Arquitectura <b>Domain-Driven Design</b> modular: 18 módulos con capas Domain / Application / Infrastructure.</li>
+              <li>PWA instalable con notificaciones push y modo oscuro.</li>
+              <li>Planes flexibles (alimentos fijos u opcionales), gráficas de evolución y exportación a PDF.</li>
+              <li>Suite de tests Unit / Integration / API más E2E con Playwright.</li>
+            </ul>
+
+            <div class="stack">
+              <span>PHP 8.4</span><span>Laravel 11</span><span>Vue 3</span><span>Pinia</span><span>Tailwind</span><span>Chart.js</span><span>Docker</span><span>Railway</span>
+            </div>
+
+            <span class="panel-link muted">Repositorio privado — demo disponible bajo petición</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="trayectoria">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">04</span><h2>Trayectoria</h2><span class="rule"></span></div>
+      <div class="timeline">
+        <div class="tl-row">
+          <div class="tl-when">ago 2024 — <span class="now">actualidad</span></div>
+          <div class="tl-what">
+            <h4>Programador full stack</h4>
+            <div class="org">ZATACA</div>
+            <p>Desarrollo y mantenimiento de aplicaciones web con Laravel y Vue.js. Implementación de APIs REST, integración de servicios externos y optimización de funcionalidades backend y frontend en soluciones orientadas a negocio.</p>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-when">mar 2024 — ago 2024</div>
+          <div class="tl-what">
+            <h4>Formación dual (FP)</h4>
+            <div class="org">ZATACA</div>
+            <p>Incorporación al equipo de desarrollo en régimen de formación dual, dando el salto de la formación al entorno de producción real.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacion">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">05</span><h2>Formación</h2><span class="rule"></span></div>
+      <div class="timeline">
+        <div class="tl-row">
+          <div class="tl-when">2024 — 2025</div>
+          <div class="tl-what">
+            <h4>Especialización en Inteligencia Artificial y Big Data</h4>
+            <div class="org">IES Severo Ochoa · Elche</div>
+            <p>Curso de especialización centrado en IA, modelos y tratamiento de grandes volúmenes de datos.</p>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-when">2022 — 2024</div>
+          <div class="tl-what">
+            <h4>FP de Grado Superior · Desarrollo de Aplicaciones Web</h4>
+            <div class="org">IES Severo Ochoa · Elche</div>
+            <p>Fundamentos de desarrollo full-stack: Java, HTML, CSS y SQL para el diseño de bases de datos y aplicaciones web.</p>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-when">Certificación</div>
+          <div class="tl-what">
+            <h4>Iniciación al Desarrollo con IA</h4>
+            <div class="org">BIG School</div>
+            <p>Formación aplicada en desarrollo asistido por inteligencia artificial.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">06</span><h2>Aptitudes</h2><span class="rule"></span></div>
+      <div class="skills">
+        <div class="skill-card">
+          <h4>Backend</h4>
+          <ul><li>PHP</li><li>Laravel</li><li>APIs REST</li><li>Autenticación (Sanctum)</li><li>Colas</li><li>Redis</li></ul>
+        </div>
+        <div class="skill-card">
+          <h4>Frontend</h4>
+          <ul><li>Vue 3</li><li>JavaScript</li><li>Pinia</li><li>Tailwind CSS</li><li>PWA</li><li>Chart.js</li></ul>
+        </div>
+        <div class="skill-card">
+          <h4>Datos</h4>
+          <ul><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>SQLite</li></ul>
+        </div>
+        <div class="skill-card">
+          <h4>IA &amp; Automatización</h4>
+          <ul><li>IA Generativa</li><li>Python</li><li>Modelos IA</li><li>Procesamiento de lenguaje natural</li><li>Entrenamiento de modelos</li><li>Prompts</li><li>IA aplicada</li></ul>
+        </div>
+        <div class="skill-card">
+          <h4>DevOps &amp; Cloud</h4>
+          <ul><li>Docker</li><li>AWS</li><li>Railway</li><li>Despliegue en producción</li><li>Git / GitHub</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <div class="contact-box">
+        <span class="label">// abrir canal</span>
+        <h2 style="margin-top:0.8rem;">Construyamos algo que llegue a producción.</h2>
+        <p>Abierto a nuevos proyectos y colaboraciones. La forma más rápida de localizarme:</p>
+        <div class="contact-links">
+          <a class="clink" href="mailto:tonices17@gmail.com"><span class="k">email</span> tonices17@gmail.com</a>
+          <a class="clink" href="https://www.linkedin.com/in/antoniocespedesros" target="_blank" rel="noopener"><span class="k">linkedin</span> /antoniocespedesros</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span>© 2026 Antonio Céspedes Ros</span>
+      <span>Elche · Comunidad Valenciana · España</span>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>

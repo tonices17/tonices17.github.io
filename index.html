@@ -236,7 +236,7 @@
   /* ---------- project shots / gallery ---------- */
   .shots { margin: 0 0 1.6rem; }
   .shots-label { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.8rem; }
-  .shots-label + .shots-label { margin-top: 1.4rem; }
+  .shots-desktop + .shots-label { margin-top: 1.8rem; }
   .shots-desktop { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
   @media (max-width: 720px) { .shots-desktop { grid-template-columns: 1fr; } }
 
@@ -256,9 +256,9 @@
   .frame .chrome .url { font-family: var(--mono); font-size: 0.6rem; color: var(--muted-dim); margin-left: 0.4rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .frame img { display: block; width: 100%; height: auto; }
 
-  .shots-mobile { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .shots-mobile { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; justify-items: center; }
   .phone {
-    position: relative; width: 150px; padding: 14px 0 9px; margin: 0;
+    position: relative; width: 100%; max-width: 168px; padding: 14px 0 9px; margin: 0;
     font: inherit; color: inherit;
     border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
     background: var(--surface); cursor: zoom-in;
@@ -267,7 +267,6 @@
   .phone:hover { border-color: var(--signal); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
   .phone .notch { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 40px; height: 4px; border-radius: 3px; background: var(--line); }
   .phone img { display: block; width: 100%; height: auto; }
-  @media (max-width: 720px) { .shots-mobile { justify-content: center; } }
 
   /* ---------- lightbox ---------- */
   .lightbox {

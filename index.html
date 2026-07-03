@@ -233,6 +233,53 @@
   .panel-link:hover { gap: 0.85rem; }
   .panel-link.muted { color: var(--muted-dim); }
 
+  /* ---------- project shots / gallery ---------- */
+  .shots { margin: 0 0 1.6rem; }
+  .shots-label { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.8rem; }
+  .shots-label + .shots-label { margin-top: 1.4rem; }
+  .shots-desktop { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+  @media (max-width: 720px) { .shots-desktop { grid-template-columns: 1fr; } }
+
+  .frame {
+    display: block; width: 100%; padding: 0; margin: 0;
+    font: inherit; color: inherit; text-align: left;
+    border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+    background: var(--surface); cursor: zoom-in;
+    transition: border-color .18s, transform .18s, box-shadow .18s;
+  }
+  .frame:hover { border-color: var(--signal); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+  .frame .chrome { display: flex; align-items: center; gap: 0.4rem; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--line-soft); background: rgba(255,255,255,0.02); }
+  .frame .chrome i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); flex: none; }
+  .frame .chrome i:nth-child(1) { background: #ff5f57; }
+  .frame .chrome i:nth-child(2) { background: #febc2e; }
+  .frame .chrome i:nth-child(3) { background: #28c840; }
+  .frame .chrome .url { font-family: var(--mono); font-size: 0.6rem; color: var(--muted-dim); margin-left: 0.4rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .frame img { display: block; width: 100%; height: auto; }
+
+  .shots-mobile { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .phone {
+    position: relative; width: 150px; padding: 14px 0 9px; margin: 0;
+    font: inherit; color: inherit;
+    border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+    background: var(--surface); cursor: zoom-in;
+    transition: border-color .18s, transform .18s, box-shadow .18s;
+  }
+  .phone:hover { border-color: var(--signal); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+  .phone .notch { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 40px; height: 4px; border-radius: 3px; background: var(--line); }
+  .phone img { display: block; width: 100%; height: auto; }
+  @media (max-width: 720px) { .shots-mobile { justify-content: center; } }
+
+  /* ---------- lightbox ---------- */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 100;
+    display: none; place-items: center; padding: 4vw;
+    background: rgba(6,8,10,0.92); backdrop-filter: blur(6px);
+    cursor: zoom-out;
+  }
+  .lightbox.open { display: grid; }
+  .lightbox img { max-width: 100%; max-height: 90vh; border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 24px 70px rgba(0,0,0,0.65); }
+  .lightbox .close { position: absolute; top: 1rem; right: 1.3rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--muted); border: 1px solid var(--line); border-radius: 7px; padding: 0.45rem 0.7rem; background: var(--surface); }
+
   /* ---------- timeline ---------- */
   .timeline { display: grid; gap: 0; }
   .tl-row { display: grid; grid-template-columns: 200px 1fr; gap: 1.5rem; padding: 1.4rem 0; border-top: 1px solid var(--line-soft); }
@@ -365,6 +412,39 @@
             <h3>NotiCharge</h3>
             <div class="tag">Monitorización de carga de VE en tiempo real</div>
             <p>PWA que vigila la red de puntos de carga de Iberdrola y avisa por <b>Web Push</b> en cuanto un cargador ocupado queda libre. Mapa interactivo, marcadores por punto y notificaciones granulares por ciudad.</p>
+
+            <div class="shots">
+              <div class="shots-label">// Capturas · escritorio</div>
+              <div class="shots-desktop">
+                <button type="button" class="frame" data-shot="assets/noticharge/noticharge-mapa.gif" data-alt="NotiCharge — mapa con los puntos de carga">
+                  <span class="chrome"><i></i><i></i><i></i><span class="url">noticharge-production.up.railway.app</span></span>
+                  <img src="assets/noticharge/noticharge-mapa.gif" alt="NotiCharge — mapa con los 26 puntos de carga de la zona" loading="lazy">
+                </button>
+                <button type="button" class="frame" data-shot="assets/noticharge/noticharge-detalle.gif" data-alt="NotiCharge — detalle de un punto de carga">
+                  <span class="chrome"><i></i><i></i><i></i><span class="url">noticharge-production.up.railway.app</span></span>
+                  <img src="assets/noticharge/noticharge-detalle.gif" alt="NotiCharge — detalle de un punto de carga con sus cargadores y gráfica de disponibilidad" loading="lazy">
+                </button>
+                <button type="button" class="frame" data-shot="assets/noticharge/noticharge-bookmarks.gif" data-alt="NotiCharge — vista Mis alertas">
+                  <span class="chrome"><i></i><i></i><i></i><span class="url">noticharge-production.up.railway.app</span></span>
+                  <img src="assets/noticharge/noticharge-bookmarks.gif" alt="NotiCharge — vista Mis alertas con los puntos guardados" loading="lazy">
+                </button>
+              </div>
+              <div class="shots-label">// Capturas · móvil</div>
+              <div class="shots-mobile">
+                <button type="button" class="phone" data-shot="assets/noticharge/noticharge-mapa-movil.gif" data-alt="NotiCharge móvil — mapa">
+                  <span class="notch"></span>
+                  <img src="assets/noticharge/noticharge-mapa-movil.gif" alt="NotiCharge en móvil — mapa con los puntos de carga" loading="lazy">
+                </button>
+                <button type="button" class="phone" data-shot="assets/noticharge/noticharge-detalle-movil.gif" data-alt="NotiCharge móvil — detalle">
+                  <span class="notch"></span>
+                  <img src="assets/noticharge/noticharge-detalle-movil.gif" alt="NotiCharge en móvil — detalle de un punto de carga" loading="lazy">
+                </button>
+                <button type="button" class="phone" data-shot="assets/noticharge/noticharge-bookmarks-movil.gif" data-alt="NotiCharge móvil — Mis alertas">
+                  <span class="notch"></span>
+                  <img src="assets/noticharge/noticharge-bookmarks-movil.gif" alt="NotiCharge en móvil — Mis alertas" loading="lazy">
+                </button>
+              </div>
+            </div>
 
             <div class="metrics">
               <div class="m"><div class="mv">Web Push</div><div class="mk">VAPID · multiplataforma</div></div>
@@ -527,6 +607,44 @@
     </div>
   </footer>
 </main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada de la captura">
+  <button type="button" class="close" aria-label="Cerrar">Cerrar ✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+(function () {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var lastFocus = null;
+
+  function open(src, alt) {
+    lastFocus = document.activeElement;
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('[data-shot]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      open(el.getAttribute('data-shot'), el.getAttribute('data-alt'));
+    });
+  });
+
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lb.classList.contains('open')) close();
+  });
+})();
+</script>
 
 </body>
 </html>

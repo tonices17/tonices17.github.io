@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Antonio Céspedes Ros — Software Developer</title>
-<meta name="description" content="Portfolio de Antonio Céspedes Ros. Desarrollador full-stack: Laravel, Vue, APIs e IA aplicada. Proyectos: NotiCharge y NutriPlan.">
+<meta name="description" content="Portfolio de Antonio Céspedes Ros. Desarrollador full-stack: Laravel, Vue, APIs e IA aplicada. Proyectos: Atalaya, NotiCharge y NutriPlan.">
 <meta name="author" content="Antonio Céspedes Ros">
 <meta name="theme-color" content="#0B0E11">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -345,7 +345,7 @@
 
       <div class="readout" aria-label="Resumen">
         <div class="cell"><div class="n"><em>2</em>+ años</div><div class="k">Full-stack pro</div></div>
-        <div class="cell"><div class="n">2</div><div class="k">Productos propios</div></div>
+        <div class="cell"><div class="n">3</div><div class="k">Productos propios</div></div>
         <div class="cell"><div class="n">Laravel<br>+ Vue</div><div class="k">Stack principal</div></div>
         <div class="cell"><div class="n">Elche</div><div class="k">Com. Valenciana</div></div>
       </div>
@@ -401,6 +401,37 @@
     <div class="wrap">
       <div class="sec-head"><span class="idx">03</span><h2>Proyectos</h2><span class="rule"></span></div>
       <div class="projects">
+
+        <article class="panel">
+          <div class="panel-top">
+            <div class="panel-id"><span class="glyph">🔭</span> atalaya</div>
+            <span class="state live">● En producción</span>
+          </div>
+          <div class="panel-body">
+            <h3>Atalaya</h3>
+            <div class="tag">Panel de observabilidad y alertas para servicios en producción</div>
+            <p>Herramienta propia que vigila mis servicios desplegados: estado, métricas (CPU/RAM/red), logs, incidentes y gasto — todo en un panel único y con avisos al móvil por <b>Web Push</b> en cuanto algo se degrada, cae o se dispara el presupuesto. Proyecto de uso personal desplegado en producción.</p>
+
+            <div class="metrics">
+              <div class="m"><div class="mv">Pull + Push</div><div class="mk">Doble modelo de ingesta</div></div>
+              <div class="m"><div class="mv"><em>4</em></div><div class="mk">Bounded contexts</div></div>
+              <div class="m"><div class="mv">Web Push</div><div class="mk">VAPID · alertas al móvil</div></div>
+            </div>
+
+            <ul class="feat">
+              <li>Arquitectura <b>hexagonal + DDD táctico + CQRS</b>: el dominio no conoce Laravel, que actúa solo como adaptador.</li>
+              <li>Doble ingesta: <b>pull</b> desde la GraphQL API de Railway y <b>push</b> agnóstico (cualquier servicio POSTea logs, métricas y latidos con un token).</li>
+              <li>Alertas por umbrales (CPU / RAM / latencia / error-rate y presupuesto) con push automático disparado por eventos de dominio.</li>
+              <li>Status page pública, vista de gasto del workspace y auto-diagnóstico (<span class="mono">self-check</span>) del propio panel.</li>
+            </ul>
+
+            <div class="stack">
+              <span>PHP 8.4</span><span>Laravel 13</span><span>Blade</span><span>Tailwind 4</span><span>PostgreSQL</span><span>Web Push / VAPID</span><span>Railway GraphQL</span><span>Railpack</span>
+            </div>
+
+            <a class="panel-link" href="https://atalaya-production-2450.up.railway.app" target="_blank" rel="noopener">Ver en producción →</a>
+          </div>
+        </article>
 
         <article class="panel">
           <div class="panel-top">

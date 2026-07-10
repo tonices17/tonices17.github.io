@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Antonio Céspedes Ros — Software Developer</title>
-<meta name="description" content="Portfolio de Antonio Céspedes Ros. Desarrollador full-stack: Laravel, Vue, APIs e IA aplicada. Proyectos: Atalaya, NotiCharge y NutriPlan.">
+<meta name="description" content="Portfolio de Antonio Céspedes Ros. Desarrollador full-stack: Laravel, Vue, APIs e IA aplicada. Proyectos: Cashflow, Atalaya, NotiCharge y NutriPlan.">
 <meta name="author" content="Antonio Céspedes Ros">
 <meta name="theme-color" content="#0B0E11">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -401,6 +401,37 @@
     <div class="wrap">
       <div class="sec-head"><span class="idx">03</span><h2>Proyectos</h2><span class="rule"></span></div>
       <div class="projects">
+
+        <article class="panel">
+          <div class="panel-top">
+            <div class="panel-id"><span class="glyph">💸</span> cashflow</div>
+            <span class="state live">● En producción</span>
+          </div>
+          <div class="panel-body">
+            <h3>Cashflow</h3>
+            <div class="tag">Finanzas personales premium — PWA instalable para el día a día</div>
+            <p>App completa para llevar tu dinero: cuentas y patrimonio, movimientos (gastos, ingresos, transferencias y recurrentes), presupuestos con alertas, objetivos de ahorro, inversiones e informes. Pensada para durar años, con una interfaz cuidada al detalle y pensada primero para el móvil. Uso personal y compartible en pareja, desplegada en producción.</p>
+
+            <div class="metrics">
+              <div class="m"><div class="mv">DDD · CQRS</div><div class="mk">Dominio puro, Laravel como adaptador</div></div>
+              <div class="m"><div class="mv"><em>241</em></div><div class="mk">tests verdes · deptrac limpio</div></div>
+              <div class="m"><div class="mv">PWA</div><div class="mk">instalable · offline · Web Push</div></div>
+            </div>
+
+            <ul class="feat">
+              <li>Arquitectura <b>hexagonal + DDD táctico + CQRS</b> con <b>outbox transaccional</b> y 11 bounded contexts aislados (verificado con <span class="mono">deptrac</span>); el dominio no conoce Laravel.</li>
+              <li>Núcleo financiero: multi-cuenta, presupuestos con avisos por umbral, objetivos, cartera de inversiones e informes de gasto por categoría y tendencias.</li>
+              <li><b>Escaneo de tickets con OCR en el dispositivo</b> (la foto nunca sale del móvil) e import/export <span class="mono">CSV</span> con casado automático de categorías.</li>
+              <li><b>Hogar compartido en pareja</b> por invitación con enlace, y avisos <b>Web Push</b> automáticos (presupuestos y objetivos) disparados por eventos de dominio.</li>
+            </ul>
+
+            <div class="stack">
+              <span>PHP 8.4</span><span>Laravel 12</span><span>PostgreSQL</span><span>Sanctum</span><span>Vue 3</span><span>Vite</span><span>Pinia</span><span>TypeScript</span><span>PWA</span><span>Web Push / VAPID</span><span>Docker</span><span>Railway</span>
+            </div>
+
+            <a class="panel-link" href="https://cashflow-prod.up.railway.app" target="_blank" rel="noopener">Ver en producción →</a>
+          </div>
+        </article>
 
         <article class="panel">
           <div class="panel-top">
